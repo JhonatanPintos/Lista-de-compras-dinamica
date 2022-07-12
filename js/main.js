@@ -54,6 +54,7 @@ do {
         } while (opciones1 != "2")
     }
     if (opciones == 2) {
+        //LO QUE FALTA ES PARA EL JUEVES
         //Opcion 2 es para modificar o eliminar un producto de la lista
         for (let  i=0; i<listaProd.length; i++){
             console.log(listaProd[i])
