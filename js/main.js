@@ -5,17 +5,40 @@ class Productos {
         this.cantidad = cantidad
     }
 }
-let listaProd = [
-    {nombre: "televisor", precio: 1000, cantidad: 1},
-    {nombre: "computadora", precio: 2000, cantidad: 1},
-    {nombre: "ventilador", precio: 5000, cantidad: 1},
-    {nombre: "tostadora", precio: 200, cantidad: 1},
-    {nombre: "estufa", precio: 1500, cantidad: 1},
-    {nombre: "computadora", precio: 3000, cantidad: 1},
+let listaProd = [{
+        nombre: "televisor",
+        precio: 1000,
+        cantidad: 1
+    },
+    {
+        nombre: "computadora",
+        precio: 2000,
+        cantidad: 1
+    },
+    {
+        nombre: "ventilador",
+        precio: 5000,
+        cantidad: 1
+    },
+    {
+        nombre: "tostadora",
+        precio: 200,
+        cantidad: 1
+    },
+    {
+        nombre: "estufa",
+        precio: 1500,
+        cantidad: 1
+    },
+    {
+        nombre: "computadora",
+        precio: 3000,
+        cantidad: 1
+    },
 ]
 let opciones
 do {
-    opciones = parseInt(prompt("Que de sea hacer?\n Elija una opcion \n 1.Agregar Producto \n 2.Modificar o eliminar un producto \n 3.Mostrar Lista"))
+    opciones = parseInt(prompt("Que de sea hacer?\n Elija una opcion \n 1.Agregar Producto \n 2.Modificar o eliminar un producto \n 3.Mostrar Lista \n 4.Salir de la aplicacion"))
     if (opciones == 1) {
         //Opcion 1 es para agregar el nombre, preio y cantidad de los productos
         let opciones1
@@ -24,11 +47,11 @@ do {
             if (opciones1 == 1) {
                 const agregarProducto = () => {
                     //En esta etapa se definira y confirmara el nombre del o los productos
-                    let nombre = prompt("Ingrese el nombre de su prducto")
+                    let nombre = prompt("Ingrese el nombre de su producto")
                     let confirmar1 = prompt(`Este es su producto "${nombre}"? \n Elija opcion 1 o 2 \n 1.Si \n 2.No`)
                     if (confirmar1 == 1) {
                         //En esta etapa se confirma el precio del o los productos
-                        let precio = parseFloat(prompt("Ingrese el precio del prducto"))
+                        let precio = parseFloat(prompt("Ingrese el precio del producto"))
                         let confirmar2 = prompt(`Este es su precio? "${precio}$" \n Elija opcion 1 o 2 \n 1.Si \n 2.No`)
                         if (confirmar2 == 1) {
                             //En esta etapa se confirma la cantidad de los productos
@@ -54,17 +77,50 @@ do {
         } while (opciones1 != "2")
     }
     if (opciones == 2) {
-        //LO QUE FALTA ES PARA EL JUEVES
         //Opcion 2 es para modificar o eliminar un producto de la lista
-        for (let  i=0; i<listaProd.length; i++){
-            console.log(listaProd[i])
-        }
-        let eliminar = listaProd.findIndex(nombreE => {
-            return nombreE.nombre === prompt("prod borrar")
-        })
-        console.log(eliminar)
+        let opciones2
+        do {
+            opciones2 = parseInt(prompt("Elija una opcion \n 1.Eliminar Producto \n 2.Modificar Producto \n 3.Volver al inicio"))
+            if (opciones2 == 1) {
+                alert(`Cual de estos productos desea eliminar?\n ${JSON.stringify(listaProd)}`)
+                let eliminar = prompt("Ingrese el nombre del producto desee eliminar")
+                listaProd.forEach((prod, index) => {
+                    if (prod.nombre == eliminar) {
+                        listaProd.splice(index, 1)
+                        alert(`El producto "${eliminar}" fue eliminado con exito`)
+                        alert(`Su lista quedo conformada de esta manera\n ${JSON.stringify(listaProd)}`)
+                    } else {
+                    alert("Buscando...")
+                    }
+                })
+            }
+            if(opciones2 == 2){
+                alert(`Cual de estos productos desea modificar?\n ${JSON.stringify(listaProd)}`)
+                let modificar = prompt("Ingrese el nombre del producto desee modificar")
+                listaProd.forEach((prod2, index2) => {
+                    if (prod2.nombre == modificar) {
+                        listaProd.splice(index2, 1)
+                        let nombre2 = prompt("Ingrese el nuevo nombre del producto")
+                        let precio2 = prompt("Ingrese el nuevo precio del producto")
+                        let cantidad2 = prompt("Ingrese la cantidad del producto")
+                        let prod2 = new Productos(nombre2, precio2, cantidad2)
+                        listaProd.push(prod2)
+                        alert(`El producto "${modificar}" fue modificado con exito`)
+                        alert(`Su lista quedo conformada de esta manera\n ${JSON.stringify(listaProd)}`)
+                    } else {
+                        alert("No se encontro ningun producto con ese nombre")
+                    }
+                })
+            }
+        } while (opciones2 != "3")
     }
-} while (opciones != "3")
-listaProd.forEach(producto => {
-    console.log(`El nombre del preducto es "${producto.nombre}" su precio es de "${producto.precio}$" y su cantidad de "${producto.cantidad}" su total seria ${producto.precio * producto.cantidad}$`)
-})
+    if (opciones == 3) {
+        let acumulador = 0
+        listaProd.forEach(producto => {
+            acumulador += (producto.precio * producto.cantidad)
+            console.log(`El nombre del preducto es "${producto.nombre}" su precio es de "${producto.precio}$" y su cantidad es de "${producto.cantidad}" su total seria ${producto.precio * producto.cantidad}$`)
+        })
+        console.log(`La compra total de sus productos tiene un total de "${acumulador}$"`)
+    }
+} while (opciones != "4")
+alert("gracias por utilizar nuestra aplicacion!")
