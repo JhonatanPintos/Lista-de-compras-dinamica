@@ -6,6 +6,7 @@ body{
 }
 
 .textos {
+    text-align: center;
     width: 160px;
     height: 25px;
     border: 2px solid blueviolet;
