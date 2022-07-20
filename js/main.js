@@ -54,16 +54,12 @@ totalizar.onclick = () => {
 const agregarProducto = () => {
     //En esta seccion se agregan productos
     let nombre = document.querySelector("#nombre").value
-    let precio = parseFloat(document.querySelector("#precio").value)
-    let cantidad = parseFloat(document.querySelector("#cantidad").value)
-if((nombre != "") && (precio == isNaN()) && (cantidad == isNaN())){
+    let precio = parseInt(document.querySelector("#precio").value)
+    let cantidad = parseInt(document.querySelector("#cantidad").value)
     let prodNuevo = new Productos(nombre, precio, cantidad)
     listaProd.push(prodNuevo)
     escribirLista()
     return prodNuevo
-}else{
-    alert("ERROR! no ingreso dato")
-}
 }
 const escribirLista = () => {
     //En esta seccion se agregan y muestran los productos dentro de la lista en el HTML
@@ -86,8 +82,6 @@ const eliminarProducto = () => {
             listaProd.splice(index, 1)
             escribirLista()
             return
-        }else{
-            alert("No se encontro producto con ese nombre")
         }
     })
 }
