@@ -1,4 +1,4 @@
-body{
+body {
     display: grid;
     text-align: center;
     gap: 5px;
@@ -12,33 +12,52 @@ body{
     border: 2px solid blueviolet;
     border-radius: 30px;
     overflow: hidden;
-    outline: none; }
-    .textos:hover {
-      border: 2px solid cyan; }
-    .textos::placeholder {
-      text-align: center; }  
+    outline: none;
+}
 
-.botonesGe{
+.textos:hover {
+    border: 2px solid cyan;
+}
+
+.textos::placeholder {
+    text-align: center;
+}
+
+.select {
+    width: 400px;
+    height: 30px;
+}
+
+.listaNueva{
+    width: 500px;
+    height: 30px;
+}
+
+.botonesGe {
     display: flex;
     flex-wrap: wrap;
-    justify-content:space-around;
+    justify-content: space-around;
     gap: 5px;
 }
 
-.botones, .botones:hover {
+.botones,
+.botones:hover {
     height: 30px;
     background-color: blueviolet;
     color: cyan;
     text-transform: uppercase;
     font-weight: bold;
     border: none;
-    border-radius: 30px; }
-    .botones:hover {
-      background-color: cyan;
-      color: blueviolet; }
-  
+    border-radius: 30px;
+}
 
-.lista{
+.botones:hover {
+    background-color: cyan;
+    color: blueviolet;
+}
+
+
+.lista {
     border: 4px solid blueviolet;
     border-radius: 20px;
     width: 450px;
@@ -46,14 +65,14 @@ body{
     overflow: scroll;
 }
 
-.prods{
+.prods {
     display: flex;
     justify-content: space-around;
 }
 
-.contenedorLista{
+.contenedorLista {
     display: grid;
-    justify-content:center;
+    justify-content: center;
     text-align: center;
     font-weight: bold;
 }

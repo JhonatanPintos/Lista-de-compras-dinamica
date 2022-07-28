@@ -5,34 +5,45 @@ class Productos {
         this.cantidad = cantidad
     }
 }
-//La idea es que la lista este vacia y el usuario cargue cada producto, puse estos po default para que sea mas facil testear las cosas
-let listaProd = [{
-        nombre: "televisor",
-        precio: 1000,
-        cantidad: 1
-    },
-    {
-        nombre: "computadora",
-        precio: 2000,
-        cantidad: 1
-    },
-    {
-        nombre: "ventilador",
-        precio: 5000,
-        cantidad: 1
-    },
-    {
-        nombre: "tostadora",
-        precio: 200,
-        cantidad: 1
-    },
-    {
-        nombre: "estufa",
-        precio: 1500,
-        cantidad: 1
-    },
-]
+//Document sobre las listas
+let borrarList = document.querySelector("#borrarList")
+let editarList = document.querySelector("#editarList")
+let selectList = document.querySelector("#selectList")
 
+
+editarList.onclick = () => {
+    crearNombreList()
+}
+
+borrarList.onclick = () => {
+    borrarLista()
+}
+
+
+//LISTAS
+selectList.onchange = () => {
+    console.log(selectList.value)
+    listaProd = JSON.parse(localStorage.getItem(selectList.value)) || []
+}
+
+const crearNombreList = () => {
+    let listaNueva = document.querySelector("#listaNueva").value
+    let nodo = document.createElement("option")
+    nodo.className = "lista"
+    nodo.setAttribute("value", listaNueva)
+    nodo.setAttribute("id", listaNueva)
+    nodo.innerText = listaNueva
+    document.getElementById("selectList").appendChild(nodo)
+}
+
+const borrarLista = () => {
+    let listaNueva = document.querySelector("#listaNueva").value
+    localStorage.removeItem(listaNueva)
+}
+
+
+
+//Document sobre los botones
 let agregar = document.querySelector("#agregar")
 let eliminarProd = document.querySelector("#eliminar")
 let mostrar = document.querySelector("#mostrar")
@@ -58,6 +69,7 @@ const agregarProducto = () => {
     let cantidad = parseInt(document.querySelector("#cantidad").value)
     let prodNuevo = new Productos(nombre, precio, cantidad)
     listaProd.push(prodNuevo)
+    localStorage.setItem(selectList.value, JSON.stringify(listaProd))
     escribirLista()
     return prodNuevo
 }
