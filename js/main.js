@@ -39,10 +39,13 @@ const crearNombreList = () => {
 const borrarLista = () => {
     let listaNueva = document.querySelector("#listaNueva").value
     localStorage.removeItem(listaNueva)
-}
-
-
-
+    let selectL = document.getElementById("selectList").childNodes
+    selectL.forEach(lista => {
+    if(lista.value == listaNueva){
+    document.getElementById("selectList").removeChild(lista)
+    }
+    })
+    }
 //Document sobre los botones
 let agregar = document.querySelector("#agregar")
 let eliminarProd = document.querySelector("#eliminar")
