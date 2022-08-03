@@ -34,18 +34,44 @@ const crearNombreList = () => {
     nodo.setAttribute("id", listaNueva)
     nodo.innerText = listaNueva
     document.getElementById("selectList").appendChild(nodo)
+    Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: `Tu nueva Lista "${listaNueva}" fue creada con exito`,
+        showConfirmButton: false,
+        timer: 2000
+    })
 }
 
 const borrarLista = () => {
-    let listaNueva = document.querySelector("#listaNueva").value
-    localStorage.removeItem(listaNueva)
-    let selectL = document.getElementById("selectList").childNodes
-    selectL.forEach(lista => {
-    if(lista.value == listaNueva){
-    document.getElementById("selectList").removeChild(lista)
-    }
+    Swal.fire({
+        title: `Estas seguro de eliminar "${document.querySelector("#listaNueva").value}"?`,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        cancelButtonText: "No, cancelar!",
+        confirmButtonText: 'Si, eliminalo!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+            let listaNueva = document.querySelector("#listaNueva").value
+            localStorage.removeItem(listaNueva)
+            let selectL = document.getElementById("selectList").childNodes
+            selectL.forEach(lista => {
+                if (lista.value == listaNueva) {
+                    document.getElementById("selectList").removeChild(lista)
+                }
+            })
+            Swal.fire(
+                'Eliminado!',
+                `${listaNueva} fue eliminado con exito`,
+                'success'
+            )
+        }
     })
-    }
+
+
+}
 //Document sobre los botones
 let agregar = document.querySelector("#agregar")
 let eliminarProd = document.querySelector("#eliminar")
@@ -74,6 +100,16 @@ const agregarProducto = () => {
     listaProd.push(prodNuevo)
     localStorage.setItem(selectList.value, JSON.stringify(listaProd))
     escribirLista()
+    Toastify({
+        text: `Producto agregado`,
+        duration: 3000,
+        gravity: "top",
+        position: "center",
+        style: {
+            // ROJO background: "linear-gradient(to right, rgb(255, 95, 109), rgb(255, 195, 113))"
+            background: "linear-gradient(to right, #00b09b, #96c93d)",
+        }
+    }).showToast();
     return prodNuevo
 }
 const escribirLista = () => {
@@ -96,6 +132,15 @@ const eliminarProducto = () => {
         if (prod.nombre == eliminar) {
             listaProd.splice(index, 1)
             escribirLista()
+            Toastify({
+                text: `Producto eliminado`,
+                duration: 3000,
+                gravity: "top",
+                position: "center",
+                style: {
+                    background: "linear-gradient(to right, rgb(255, 95, 109), rgb(255, 195, 113))",
+                }
+            }).showToast();
             return
         }
     })
@@ -117,12 +162,9 @@ const mostrarLista = () => {
 
 const totalProds = () => {
     //En esta seccion se totalizara el total de los productos multiplicando sus precios con sus cantidades
-    document.getElementById("precioTotal").innerHTML = "Total de su compra"
     let acumulador = 0
     listaProd.forEach(producto => {
         acumulador += (producto.precio * producto.cantidad)
     })
-    let precioTot = document.createElement("p")
-    precioTot.innerHTML = `<p>${acumulador}$</p>`
-    document.getElementById("precioTotal").appendChild(precioTot)
+    Swal.fire(`El total de su compra es de $${acumulador}`)
 }
