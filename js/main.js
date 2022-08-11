@@ -106,7 +106,6 @@ const agregarProducto = () => {
         gravity: "top",
         position: "center",
         style: {
-            // ROJO background: "linear-gradient(to right, rgb(255, 95, 109), rgb(255, 195, 113))"
             background: "linear-gradient(to right, #00b09b, #96c93d)",
         }
     }).showToast();
