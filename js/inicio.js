@@ -19,7 +19,7 @@ boton2.onclick = () => {
         timer: 1500
     })
     setTimeout(() => {
-        window.location.href = ("../index.html")
+        window.location.href = ("index.html")
     }, 1700)
 }
 
@@ -58,7 +58,7 @@ const obtenerDatos = () => {
                             timer: 1500
                         })
                         setTimeout(() => {
-                            window.location.href = ("../index.html")
+                            window.location.href = ("index.html")
                         }, 1700)
                     } else {
                         Swal.fire({
