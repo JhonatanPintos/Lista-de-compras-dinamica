@@ -30,7 +30,7 @@ boton1.onclick = (e) => {
 }
 
 const obtenerDatos = () => {
-    fetch("../cuentas.json")
+    fetch("./cuentas.json")
         .then(response => response.json())
         .then(result => {
             let datos = result
