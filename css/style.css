@@ -1,4 +1,5 @@
 body {
+    background-image: url(https://st3.depositphotos.com/1356500/37513/i/450/depositphotos_375131588-stock-photo-stars-galaxy-outer-space-sky.jpg);
     display: grid;
     text-align: center;
     gap: 5px;
@@ -63,6 +64,7 @@ body {
     width: 450px;
     height: 600px;
     overflow: scroll;
+    background-color:white;
 }
 
 .prods {
@@ -76,3 +78,19 @@ body {
     text-align: center;
     font-weight: bold;
 }
+
+.textoDeco {  
+    background: linear-gradient(125deg, blueviolet 35%, cyan 50%, blueviolet 65%);
+    background-repeat: repeat;
+    animation: gradient 7s linear infinite; 
+    background-clip: content-box;
+    -webkit-background-clip: text;  
+    -webkit-text-fill-color: transparent;  
+  }  
+  @keyframes gradient {
+    0% {
+      background-position: 0 0; }
+    50% {
+      background-position: -40rem 0; }
+    100% {
+      background-position: 0 0; } }
