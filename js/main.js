@@ -60,6 +60,7 @@ const borrarLista = () => {
             selectL.forEach(lista => {
                 if (lista.value == listaNueva) {
                     document.getElementById("selectList").removeChild(lista)
+                    document.getElementById("listaProd").innerHTML = ""
                 }
             })
             Swal.fire(
