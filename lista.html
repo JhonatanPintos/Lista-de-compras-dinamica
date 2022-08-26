@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Dinamica</title>
+    <!-- BOOSTRAP -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <!-- TOASTIFY -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1 class="textoDeco">Lista dinamica de compras</h1>
+    <h2 class="textoDeco">Que de sea hacer? Elija una opcion</h2>
+    <div>
+    <select class="textos select" id="selectList">
+        <option>Agregar Lista Nueva</option>
+    </select>
+    </div>
+    <form action="">
+        <input id="listaNueva" class="textos listaNueva" placeholder="Nombre de su lista aqui" type="text">
+    </form>
+    <div>
+    <button id="editarList" class="botones">Crear Lista</button>
+    <button id="borrarList" class="botones">Borrar Lista</button>
+    </div>
+    <form action="">
+    <input id="nombre" class="textos" placeholder="Nombre del producto aqui" type="text">
+    <input id="precio" class="textos" placeholder="Precio del producto aqui" type="text">
+    <input id="cantidad" class="textos" placeholder="Cantidad del producto aqui" type="text">
+    </form>
+    <div id="" class="botonesGe">
+        <button id="agregar" class="botones">Agregar Producto</button>
+        <button id="eliminar" class="botones">Eliminar un producto</button>
+        <button id="mostrar" class="botones">Mostrar lista</button>
+        <button id="total" class="botones">Totalizar</button>
+    </div>
+    <div class="contenedorLista">
+    <h3 class="textoDeco">Lista</h3>
+    <div id="listaProd" class="lista"></div>
+    </div>
+    <footer>
+        <a href="index.html">Volver al inicio</a>
+    </footer>
+    <!-- BOOSTRAP -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous">
+    </script>
+    <!-- TOASTIFY -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- SWEETALERT -->
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- JS -->
+    <script src="js/main.js"></script>
+    
+</body>
+</html>

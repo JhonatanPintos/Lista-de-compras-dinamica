@@ -3,13 +3,6 @@
 let boton1 = document.querySelector("#botonEntrar")
 let boton2 = document.querySelector("#prueba")
 
-let nombreUsuarioNuevo = document.querySelector("#nombreUsuarioNuevo")
-let emailUsuarioNuevo = document.querySelector("#emailUsuarioNuevo")
-let contraUsuarioNuevo = document.querySelector("#contraUsuarioNuevo")
-
-
-
-
 boton2.onclick = () => {
     Swal.fire({
         position: 'center',
@@ -19,7 +12,7 @@ boton2.onclick = () => {
         timer: 1500
     })
     setTimeout(() => {
-        window.location.href = ("index.html")
+        window.location.href = ("lista.html")
     }, 1700)
 }
 
@@ -34,9 +27,9 @@ const obtenerDatos = () => {
         .then(response => response.json())
         .then(result => {
             let datos = result
-            let nombreUsuario = document.querySelector("#nombreUsuario").value
-            let emailUsuario = document.querySelector("#emailUsuario").value
-            let contraUsuario = document.querySelector("#contraUsuario").value
+            let nombreUsuario = document.querySelector("#nombreUsuarioNuevo").value
+            let emailUsuario = document.querySelector("#emailUsuarioNuevo").value
+            let contraUsuario = document.querySelector("#contraUsuarioNuevo").value
             let buscarUsuarioNombre = datos.some(data => data.nombre == nombreUsuario)
             let buscarUsuarioEmail = datos.some(data => data.email == emailUsuario)
             let buscarUsuarioContraseña = datos.some(data => data.contraseña == contraUsuario)
@@ -58,7 +51,7 @@ const obtenerDatos = () => {
                             timer: 1500
                         })
                         setTimeout(() => {
-                            window.location.href = ("index.html")
+                            window.location.href = ("lista.html")
                         }, 1700)
                     } else {
                         Swal.fire({
